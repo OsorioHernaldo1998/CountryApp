@@ -1,0 +1,35 @@
+<div class="flex flex-col gap-10">
+
+  <div class="text-3xl text-center"> Pais: <strong> {{country?.name?.common}} </strong> </div>
+
+  <div class="grid grid-cols-[30%_70%] gap-10">
+
+    <div class="flex flex-col gap-2">
+      <div class=" text-2xl font-bold "> Bandera </div>
+
+      <img [src]="country?.flags?.svg" alt="Bandera">
+
+      <div class="flex flex-row flex-wrap gap-1">
+        <span class="rounded-3xl bg-blue-300 p-1 self-start"> {{country?.translations?.['ara']?.common}} </span>
+        <span class="rounded-3xl bg-blue-300 p-1 self-start"> {{country?.translations?.['ara']?.common}} </span>
+        <span class="rounded-3xl bg-blue-300 p-1 self-start"> {{country?.translations?.['ara']?.common}} </span>
+        <span class="rounded-3xl bg-blue-300 p-1 self-start"> {{country?.translations?.['ara']?.common}} </span>
+        <span class="rounded-3xl bg-blue-300 p-1 self-start"> {{country?.translations?.['ara']?.common}} </span>
+        <span class="rounded-3xl bg-blue-300 p-1 self-start"> {{country?.translations?.['ara']?.common}} </span>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col gap-5">
+      <div class="text-2xl font-bold"> Informacion </div>
+      <ul class="flex flex-col border rounded divide-y">
+        <li> Poblacion: <strong>{{ country?.population }}</strong> </li>
+        <li> Codigo: <strong>{{ country?.cca2 }}</strong> </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
+</div>

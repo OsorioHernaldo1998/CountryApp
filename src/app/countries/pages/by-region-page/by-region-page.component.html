@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-10">
+
+  <h2 class="text-3xl font-bold"> Por Region </h2>
+
+  <hr>
+
+  <shared-search-box [placeholder]="'Buscar Por Region'" (searchValueOut)="searchByRegion( $event )"></shared-search-box>
+
+  <div>
+    <country-table [countries]="countries" ></country-table>
+  </div>
+
+</div>

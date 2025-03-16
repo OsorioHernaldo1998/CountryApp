@@ -1,0 +1,23 @@
+<div class="bg-gray-200 flex flex-wrap flex-col gap-4 mx-auto border rounded p-2 w-full">
+
+  <h2 class="font-bold mx-auto text-center text-2xl"> Paises </h2>
+
+  <hr>
+
+  <ul class="list-none flex flex-col gap-1">
+
+    <li routerLink="country/bycapital" routerLinkActive="bg-blue-800" [routerLinkActiveOptions]="{exact: true}"
+    class="bg-blue-500 text-white rounded text-center cursor-pointer
+     transition active:bg-red-500 p-2 hover:scale-105 active:scale-95" > Por Capital </li>
+
+    <li routerLink="country/bycountry" routerLinkActive="bg-blue-800" [routerLinkActiveOptions]="{exact: true}"
+    class="bg-blue-500 text-white rounded text-center cursor-pointer
+     transition active:bg-red-500 p-2 hover:scale-105 active:scale-95"> Por Ciudad </li>
+
+     <li routerLink="country/byregion" routerLinkActive="bg-blue-800" [routerLinkActiveOptions]="{exact: true}"
+    class="bg-blue-500 text-white rounded text-center cursor-pointer
+     transition active:bg-red-500 p-2 hover:scale-105 active:scale-95"> Por Region </li>
+
+  </ul>
+
+</div>
