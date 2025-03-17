@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../../interfaces/country';
 import { CountriesService } from '../../services/countries.service';
+import { pipe, tap } from 'rxjs';
 
 @Component({
   selector: 'app-by-country-page',
@@ -10,17 +11,35 @@ import { CountriesService } from '../../services/countries.service';
 })
 export class ByCountryPageComponent implements OnInit {
 
+  public countries: Country[] = []
+
+  public loading: boolean = false
+
+  public initialTerm:string = ''
+
+
   constructor( private countriesService: CountriesService ){}
 
   ngOnInit(){
-    this.searchByCountry( 'Nicaragua' )
+
+    this.countries = this.countriesService.cacheCountries.byCountry.countries
+
+    this.initialTerm = this.countriesService.cacheCountries.byCountry.term
+
+    if (this.countries.length === 0 ){   this.searchByCountry( 'Nicaragua' ) }
+
   }
 
-  public countries: Country[] = []
 
   searchByCountry( value:string ):void{
 
-    this.countriesService.searchByCountry( value ).subscribe( countries => this.countries = countries  )
+    this.loading = true
+
+    this.countriesService.searchByCountry( value ).subscribe( countries => {
+      this.countries = countries
+
+      this.loading = false
+    } )
 
   }
 

@@ -5,10 +5,19 @@
 <hr>
 
 
-  <shared-search-box [placeholder]="'Buscar Por Capital'" (searchValueOut)="searchByCapital($event)"></shared-search-box>
+  <shared-search-box [placeholder]="'Buscar Por Capital'"
+  [initialTerm] ="initialTerm"
+  (searchValueOut)="searchByCapital($event)"></shared-search-box>
 
-  <div>
-    <country-table [countries]="countries" ></country-table>
+  <div class="flex flex-col gap-10">
+
+    <shared-loading-spinner *ngIf="loading; else tabla" ></shared-loading-spinner>
+
+    <ng-template #tabla>
+      <country-table [countries]="countries" ></country-table>
+    </ng-template>
+
+
   </div>
 
 </div>

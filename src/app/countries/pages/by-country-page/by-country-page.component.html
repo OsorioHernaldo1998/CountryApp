@@ -4,12 +4,18 @@
 
   <hr>
 
-  <shared-search-box [placeholder]="'Buscar Por Ciudad'" (searchValueOut)="searchByCountry($event)" ></shared-search-box>
+  <shared-search-box [placeholder]="'Buscar Por Ciudad'"
+    [initialTerm]="initialTerm"
+    (searchValueOut)="searchByCountry($event)" ></shared-search-box>
 
+  <shared-loading-spinner *ngIf="loading ; else tabla"></shared-loading-spinner>
 
-  <div>
-    <country-table [countries]="countries" ></country-table>
-  </div>
+  <ng-template #tabla>
 
+    <div>
+      <country-table [countries]="countries"></country-table>
+    </div>
+
+  </ng-template>
 
 </div>
